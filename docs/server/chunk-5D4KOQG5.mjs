@@ -1,0 +1,2 @@
+import './polyfills.server.mjs';
+import{c as n,i as e}from"./chunk-5UF2B2WO.mjs";import{R as i,W as s}from"./chunk-E5AJEFIA.mjs";var o=class r{httpClient=s(n);addProductToWishList(t){return this.httpClient.post(e.baseUrl+"wishlist",{productId:t})}getLoggedUserWishList(){return this.httpClient.get(e.baseUrl+"wishlist")}removeSpecificWishList(t){return this.httpClient.delete(e.baseUrl+`wishlist/${t}`)}static \u0275fac=function(a){return new(a||r)};static \u0275prov=i({token:r,factory:r.\u0275fac,providedIn:"root"})};export{o as a};

@@ -1,0 +1,44 @@
+<div class="card group/card overflow-hidden relative">
+  <div
+    [routerLink]="['/details', product.slug, product.id]"
+    class="cursor-pointer"
+  >
+    <img
+      [src]="product.imageCover"
+      class="w-full rounded-t h-[300px] object-contain"
+      [alt]="product.title"
+    />
+    <h3 class="text-sm text-green-700">{{ product.category.name }}</h3>
+    <h4 class="text-lg line-clamp-1">
+      {{ product.title | term : 2 | titlecase }}
+    </h4>
+
+    <div class="flex justify-between items-center">
+      <span>{{ product.price | currency : "GBP" }}</span>
+      <span
+        ><i class="fas fa-star text-yellow-500"></i>
+        {{ product.ratingsAverage }}</span
+      >
+    </div>
+  </div>
+  <span class="absolute bottom-[45px] right-[55px]">
+    @if(product.isLoved){
+    <i
+      (click)="removeSpecificWishList(product.id)"
+      class="fa-solid text-red-600 fa-heart fa-lg cursor-pointer"
+    ></i>
+    }@else if(!product.isLoved){
+    <i
+      (click)="addProductToWishList(product.id)"
+      class="fa-solid fa-heart fa-lg cursor-pointer"
+    ></i>
+    }
+  </span>
+
+  <button
+    (click)="addProductToCart(product.id)"
+    class="btn btnH w-full translate-y-[130%] group-hover/card:translate-0"
+  >
+    Add To Cart
+  </button>
+</div>

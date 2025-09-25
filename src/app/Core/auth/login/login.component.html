@@ -1,0 +1,41 @@
+<section
+  class="bg-gray-100 border border-gray-200 p-4 shadow-md md:w-1/2 mx-auto my-14 rounded-lg"
+>
+  <h1 class="text-center mb-5 font-light text-3xl">Login Now</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+    <app-input
+      [control]="loginForm.get('email')"
+      [typeInput]="'email'"
+      [idInput]="'email'"
+      [labelInput]="'Email'"
+    ></app-input>
+
+    <app-input
+      [control]="loginForm.get('password')"
+      [idInput]="'password'"
+      [labelInput]="'Password'"
+    >
+      custom field should match the pattern [should more than or equal 6]
+    </app-input>
+
+    <div>
+      <a routerLink="/forgetpassword" class="text-shadow-sky-600 cursor-pointer"
+        >ForgetPassword</a
+      >
+
+      <button class="btn w-full mt-4 p-3">Login</button>
+    </div>
+
+    <!-- @if (msgError) {
+    <div
+      class="flex p-4 mt-4 mb-4 text-sm text-red-800 rounded-lg bg-red-300 dark:bg-gray-800 dark:text-red-400 justify-center"
+      role="alert"
+    >
+      <ul class="mt-1.5 list-disc list-inside">
+        <li>{{ msgError }}</li>
+      </ul>
+    </div>
+
+    } -->
+  </form>
+</section>

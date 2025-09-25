@@ -1,0 +1,28 @@
+<section class="bg-gray-200 p-4">
+  <div class="container items-start p-4 rounded-lg shadow">
+    <h1 class="text-3xl">My wosh list</h1>
+
+    @for (item of WishListProduct; track $index) {
+    <div class="bg-white p-2 rounded shadow my-2 grid sm:grid-cols-12">
+      <div class="col-span-2">
+        <img [src]="item.imageCover" class="h-[300px]" [alt]="item.title" />
+      </div>
+      <div class="col-span-10 flex items-center justify-between ms-0">
+        <div class="space-y-3">
+          <h3>{{ item.title }}</h3>
+          <span class="block">{{ item.price | currency : "GBP" }}</span>
+          <button
+            (click)="removeSpecificWishList(item.id)"
+            class="cursor-pointer text-red-600"
+          >
+            <i class="fas fa-trash-can"></i>Remove
+          </button>
+        </div>
+        <button (click)="addProductToCart(item.id)" class="btn w-50 py-3">
+          add To Cart
+        </button>
+      </div>
+    </div>
+    }
+  </div>
+</section>
